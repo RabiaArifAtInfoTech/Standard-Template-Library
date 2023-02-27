@@ -3,6 +3,7 @@
 //#include <bits/stdc++.h> ////for binary_search
 #include<algorithm> //// for partition algorithm
 #include<vector>
+#include<string>
 //using namespace std;
 
 #define PI 3.14159265
@@ -243,6 +244,182 @@ int main() {
 			std::cout << "\nArray after sorting : \n";
 			for (int i = 0; i < n2; ++i)
 				std::cout << arr7[i] << " ";
+
+			//// 20. std::stable_sort(arr,position): 
+			std::cout << "\n\n20. std::stable_sort(arr,position): preserves physical order of semantically equivalent values\n";
+			
+			//// 21. std::partial_sort(begin,middle,end): 
+
+			std::cout << "\n21. std::partial_sort\n";
+				// which is used for sorting not the entire range, but only a sub - part of it.\n";
+			//std::cout << "\n void partial_sort (RandomAccessIterator first, RandomAccessIterator middle, RandomAccessIterator last); \n";
+
+			std::vector<int> v5 = { 1, 3, 1, 10, 3, 4, 7, 7, 8 }, i2;
+
+			std::vector<int>::iterator ip;
+
+			// Using std::partial_sort
+			std::partial_sort(v5.begin(), v5.begin() + 5, v5.end());
+
+			// Displaying the vector after applying
+			// std::partial_sort
+			for (ip = v5.begin(); ip != v5.end(); ++ip) {
+				std::cout << *ip << " ";
+			}
+
+			////22. rotate(begin,middle,end)
+			std::cout << "\n\n22. std::rotate\n";
+
+			std::vector<int> arrV;
+
+			// set some values: 1 2 3 4 5 6
+			// 7 8 9
+			for (int i = 1; i < 10; ++i)
+				arrV.push_back(i);
+
+			// Use of rotate
+			rotate(arrV.begin(), arrV.begin() + 4, arrV.end());
+
+			// prints the content:
+			std::cout << "arr contains:";
+			for (auto i = arrV.begin(); i != arrV.end(); i++)
+				std::cout << ' ' << *i;
+			
+			////23. rotate_copy(begin,middle,end)
+			std::cout << "\n\n23. std::rotate_copy\n";
+
+			int arrR[] = { 10, 20, 30, 40, 50, 60, 70 };
+			int nR = sizeof(arrR) / sizeof(arrR[0]);
+
+			// Use of rotate_copy
+			std::vector<int> gfg(7);
+			std::rotate_copy(arrR, arrR + 4, arrR + nR, gfg.begin());
+
+
+			// prints the content:
+			std::cout << "gfg contains:";
+			for (auto i = gfg.begin(); i != gfg.end(); i++)
+				std::cout << ' ' << *i;
+
+			std::cout << "\narrR contains:";
+			for (int i=0; i < nR ; i++)
+				std::cout << ' ' << arrR[i];
+
+			////24. Accumulate : adds all elements
+			std::cout << "\n\n24. std::Accumulate\n";
+
+			//std::vector<int> vecAc{ 1,2,3,4,5,6,7,8,9 };
+
+			//// Taking initial sum as 0
+			//int sum = 0;
+			//std::cout << "\n Initial value of sum = " << sum << std::endl;
+
+			//// Demonstration of accumulate function
+			//// to sum all the elements of the vector
+			//sum = std::accumulate(vecAc.begin(), vecAc.end(), sum);
+
+			//std::cout << " Value of sum after accumulate = " << sum << std::endl;
+
+			////25. rotate_copy(begin,middle,end)
+			std::cout << "\n25. std::equal\n";
+
+			std::vector<int> arr11{ 3, 2, 1, 4, 5, 6, 7 };
+
+			std::vector<int> arr22{ 3, 2, 1, 4, 5 };
+
+			bool equal = std::equal(arr11.begin(), arr11.begin() +  4, arr22.begin());
+			if (equal)
+			{
+				std::cout << "both ranges are exactly equal \n";
+			}
+			else
+			{
+				std::cout << "both ranges are not exactly equal \n";
+			}
+
+
+
+			////26. includes(first1, end1, first2, end2)
+			std::cout << "\n26. includes(first1, end1, first2, end2)\n";
+
+
+			std::vector<int> arr111{ 3, 5, 7, 9 };
+			std::vector<int> arr222{ 5, 9 };
+
+			if (std::includes(arr111.begin(), arr111.end(), arr222.begin(), arr222.end()))
+				std::cout << "arr111 contains arr2\n";
+			else
+				std::cout << "arr111 doesn't contain arr222\n";
+
+			
+			////27. find(arr.begin(), arr.end(), searching_element);
+			std::cout << "\n27. find(arr.begin(), arr.end(), searching_element)\n";
+
+
+			std::vector<int> arrF{ 1, 2, 3, 8, 4, 3 };
+
+			int searching_element = 8;
+			std::vector<int>::iterator itF;
+			//starting iterator of range= arr.begin()
+			//end iterator of range =arr.end()
+
+			itF = find(arrF.begin(), arrF.end(), searching_element);
+			if (itF != arrF.end())
+				std::cout << searching_element << " is at position: " << itF - arrF.begin() << std::endl;
+			else
+				std::cout << searching_element << "not found";
+
+
+			////28. find(arr.begin(), arr.end(), searching_element);
+			std::cout << "\n27. find_first_of()\n";
+
+
+			std::string str = "#includehelp";
+
+			std::string re = "fssaad";
+			//its searching in the string str
+			//it searches any character from the string re
+			//now if any character of re is found then it simply 
+			//returns the position of the character found
+
+			std::cout << "the first vowel appearing in the string: " << str << " is at " << str.find_first_of(re) << std::endl;
+
+			//now this will start searching in str from position=1
+			//thus it skips the fisrt vowel 'i'
+			std::cout << "the second vowel appearing in the string: " << str << " is " << str[str.find_first_of(re, 1)] << std::endl;
+
+			////29. next_permutation(nums.begin(), nums.end())
+			std::cout << "\n29. next_permutation(nums.begin(), nums.end())\n";
+
+
+			std::cout << "\nEnter number of elements in the permutation: ";
+			int input;
+			std::cin >> input;
+
+			//first permutation is 1,2,3,4...,n
+			std::vector<int> nums(input);
+			for (int i = 0; i < input; i++)
+				nums[i] = i + 1;
+
+			int count1 = 1;
+
+			//the while loop will break when no more 
+			//next Permutation is possible
+			//as the function next_permutation will 
+			//return false then
+			do {
+				std::cout << "Permutation " << count1++ << std::endl;
+				for (auto it : nums)
+					std::cout << it << " ";
+				std::cout << std::endl;
+			} //in places converts to next permutation if there exists the next permutation
+			while (next_permutation(nums.begin(), nums.end()));
+
+
+
+
+
+
 
 
 			std::cout << "\n\n";
