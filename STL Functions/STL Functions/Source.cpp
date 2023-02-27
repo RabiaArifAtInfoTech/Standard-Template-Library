@@ -4,6 +4,7 @@
 #include<algorithm> //// for partition algorithm
 #include<vector>
 #include<string>
+
 //using namespace std;
 
 #define PI 3.14159265
@@ -320,7 +321,7 @@ int main() {
 
 			//std::cout << " Value of sum after accumulate = " << sum << std::endl;
 
-			////25. rotate_copy(begin,middle,end)
+			////25. equal(arr11.begin(), arr11.begin() +  4, arr22.begin())
 			std::cout << "\n25. std::equal\n";
 
 			std::vector<int> arr11{ 3, 2, 1, 4, 5, 6, 7 };
@@ -370,8 +371,8 @@ int main() {
 				std::cout << searching_element << "not found";
 
 
-			////28. find(arr.begin(), arr.end(), searching_element);
-			std::cout << "\n27. find_first_of()\n";
+			////28. find_first_of(arr.begin(), arr.end(), searching_element);
+			std::cout << "\n28. find_first_of()\n";
 
 
 			std::string str = "#includehelp";
@@ -392,13 +393,13 @@ int main() {
 			std::cout << "\n29. next_permutation(nums.begin(), nums.end())\n";
 
 
-			std::cout << "\nEnter number of elements in the permutation: ";
+			/*std::cout << "\nEnter number of elements in the permutation: ";
 			int input;
-			std::cin >> input;
+			std::cin >> input;*/
 
 			//first permutation is 1,2,3,4...,n
-			std::vector<int> nums(input);
-			for (int i = 0; i < input; i++)
+			std::vector<int> nums(3);
+			for (int i = 0; i < 3; i++)
 				nums[i] = i + 1;
 
 			int count1 = 1;
@@ -415,11 +416,65 @@ int main() {
 			} //in places converts to next permutation if there exists the next permutation
 			while (next_permutation(nums.begin(), nums.end()));
 
+			////30. swap_ranges(arr1.begin(), arr1.last, arr2.begin());
+			std::cout << "\n30. swap_ranges(arr1.begin(), arr1.last,  arr2.begin());\n";
 
 
+			std::vector<int> arrSwap1{ 1, 2, 3, 4, 5, 6 };
+			std::vector<int> arrSwap2{ 11, 12, 13, 14, 15 };
 
+			//before swapping
+			std::cout << "Before swapping, the ranges are:\n";
+			
+			for (auto it : arrSwap1)
+				std::cout << it << " ";
+			std::cout << std::endl;
 
+			for (auto it : arrSwap2)
+				std::cout << it << " ";
+			std::cout << std::endl;
+			//swap first three elements of arr1 with 
+			//first three of arr2
+			//first1=arr1.begin()
+			//last1=arr1.begin()+3
+			//first2=arr2.begin()
+			swap_ranges(arrSwap1.begin(), arrSwap1.begin() + 3, arrSwap2.begin());
+			//After swapping
 
+			std::cout << "After swapping, the ranges are:\n";
+
+			for (auto it : arrSwap1)
+				std::cout << it << " ";
+			std::cout << std::endl;
+
+			for (auto it : arrSwap2)
+				std::cout << it << " ";
+			std::cout << std::endl;
+
+			////31. max(a,b)
+			std::cout << "\n31. max(a,b) \n";
+			std::cout << "\nmax('a','b'): " << std::max('a', 'b');
+
+			////32. min(a,b)
+			std::cout << "\n32. min(a,b) \n";
+			std::cout << "\nmin('a','b'): " << std::min('a', 'b');
+
+			////33. minmax(a,b)
+			std::cout << "\n33. minmax(a,b) \n";
+			auto result = std::minmax('a', 'b');
+			std::cout << "\nmin('a','b'): " << result.first;
+			std::cout << "\nmax('a','b'): " << result.second;
+
+			////34. min_element(arr.begin, arr.end)
+			std::cout << "\n\n34. min_element(arr.begin, arr.end) \n";
+			int arrMin[] = { 100, 200, -100, 300, 400 };
+			int result1 = *(std::min_element(arrMin + 0, arrMin + 5));
+			std::cout << "smallest element of the array: " << result1 << std::endl;
+
+			////35. mmax_element(arr.begin, arr.end)
+			std::cout << "\n35. max_element(arr.begin, arr.end) \n";
+			int result2 = *(std::max_element(arrMin + 0, arrMin + 5));
+			std::cout << "largest element of the array: " << result2 << std::endl;
 
 
 			std::cout << "\n\n";
